@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registrar Denuncia</title>
+
+    <!-- Custom fonts for this template-->
+    <link th:href="@{/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+
+    <!-- Custom styles for this template-->
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+</head>
+
+<body id="page-top" th:fragment="content">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/main">
+                <div class="sidebar-brand-icon rotate-n-15">
+
+                </div>
+                <div class="sidebar-brand-text mx-3">GEDME </div>
+            </a>
+
+            <!-- Divider -->
+
+
+
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+
+            </div>
+
+
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/Rdenuncia">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Registrar denuncia</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/GestDenuncia" sec:authorize="hasAnyAuthority('ADMIN','Especialista')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Gestionar de denuncia</span></a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" href="/GestUsuarios">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Gestionar Usuarios</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href='@{/gestionarArea}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Gestionar Area</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" th:href='@{/Reportes}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Reportes</span></a>
+            </li>
+
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!--//aaaaaaaaaaaaa//-->
+
+                    <!--Nombre del sitio -->
+
+                    <h3 class="font-italic">Gestión de Denuncias Medioambientales</h3>
+
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                            </svg>
+                        </button>
+
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+
+
+
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="/#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                                    </svg>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter"><p th:text="${cantNotificaciones}"></p></span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Centro de notificaciones
+                                </h6>
+
+                                <th:block th:each="per:${notificacioness}">
+
+                                    <div>
+
+                                        <div class=" container small  ">
+                                            <h6 class="p-2 " th:text="${per.notificacion}"></h6>
+                                        </div>
+                                        <a class="  dropdown-item d-flex align-items-center btn btn-sm" th:href="@{/EliminarNotificacion?id=} + ${per.id}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                                                </svg> <strong class="ms-1">Eliminar notificación</strong>
+                                        </a>
+                                    </div>
+
+                                </th:block>
+
+                            </div>
+                        </li>
+
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span sec:authentication="name" class="mr-2 d-none d-lg-inline text-gray-600 small"></span> <br>
+                            </a>
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+
+                                <a class="dropdown-item" th:href="@{/logout}" data-toggle="modal" data-target="#logoutModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                        </svg> Salir
+                                </a>
+                            </div>
+                        </li>
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                    </ul>
+
+                    <!--//aaaaaaaaaaaaa//-->
+
+
+
+
+
+                </nav>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+
+
+
+
+
+
+
+                    <!-- Contenido de la pagina (Pagina principal)**************************************************************************************************************************************************************************************************************************************************************************************************** -->
+                    <div class="container-fluid sm-10 col-md-10">
+                        <div class="align-items-center">
+                            <div th:if="${userAgregar.id==null}">
+                                <h4 class="text-gray-600 aria-hidden align-items-center">Registrar denuncia</h4>
+                            </div>
+                            <div th:unless="${userAgregar.id==null}">
+                                <h4 class="text-gray-600 aria-hidden align-items-center">Modificar denuncia</h4>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <form id="fuyipsu" method="POST" th:action="@{/AgregarDenuncia}" th:object="${userAgregar}">
+                            <span th:if="${userAgregar.id!=null}">
+                                    <input hidden="true" type="text" th:field="${userAgregar.id}" readonly>
+                                </span>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6">
+
+                                    <input type="text" class="form-control" placeholder="Nombre " id="nombrecitos" th:field="*{nombre}" th:value="*{nombre}" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" minlength="3" maxlength="16" required>
+                                </div>
+
+                                <div class="form-group col-md-6">
+
+                                    <input type="text" class="form-control" placeholder="Apellido " id="apelliditos" th:field="*{apellido}" th:value="*{apellido}" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" minlength="3" maxlength="16" required>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <input type="text" class="form-control col-md-6" placeholder="Carnet de identidad " id="ci" th:field="*{Ci}" th:value="*{Ci}" pattern="^[0-9]+$" required>
+                            </div>
+
+                            <div class="form-inline">
+
+
+
+                                <div class="form-group col-md-3">
+                                    <label for="inputState" class="mr-2">Área</label>
+
+                                    <select th:field="*{area}" name="area" required>
+                                            <th:block th:each="are:${listArea}">
+
+                                                <option th:text="${are.manzana}+'/'+${are.edificio}+'/'+${are.apartamento}" th:value="${are.id}" />
+                                            </th:block>
+                                        </select>
+
+                                </div>
+
+
+
+
+                                <div class="form-group col-md-4">
+                                    <label class="mr-2" for="inputState">Categoría</label>
+                                    <select name="categoria" th:field="*{categoria}">
+                                            <option th:each="categoria : ${T(liias.desarrolloweb.libros.Modelo.Catego).values()}" 
+                                                    th:value="${categoria}" th:text="${categoria}"></option>
+                                        </select>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="mr-2" for="inputState">Tipo de infracción</label>
+                                    <select class="" name="tipo" th:field="*{tipo}">
+                                            <option th:each="tipo : ${T(liias.desarrolloweb.libros.Modelo.Tipo).values()}" 
+                                                    th:value="${tipo}" th:text="${tipo}"></option>
+                                        </select>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+                                <label for="comment" class="mt-3">Descripción:</label>
+                                <textarea class="form-control" id="inputDescripcion" rows="5" th:field="*{descripcion}" th:value="*{descripcion}" minlength="3" maxlength="300" required></textarea>
+                            </div>
+
+                            <div>
+                                <button type="submit" class=" btn btn-success" id="suse">Guardar</button>
+                            </div>
+
+
+
+
+
+                        </form>
+
+
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+
+
+    <!-- End of Content Wrapper -->
+
+
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+            </svg>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que quiere salir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                </div>
+                <div class="modal-body">Seleccione "Salir" si desea abandonar la página.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="/login">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script th:src="@{/js/jquery.easing.min.js}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{/js/sb-admin-2.min.js}"></script>
+
+
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/js/validar.js}"></script>
+    <!--<script th:src="@{js/denuncia.js}"></script>-->
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Login V8</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.ico}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/hamburgers.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animsition.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/select2.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/daterangepicker.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form th:action="@{/login}" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                    <span class="login100-form-title">
+                                                                                    Bienvenido
+                                                                                </span>
+
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+                        <input class="input100" type="text" name="username" placeholder="Usuario" required minlength="1" maxlength="32">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Please enter password">
+                        <input class="input100" type="password" name="password" placeholder="Contraceña" required>
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+
+                    <div class="container-login100-form-btn">
+                        <button type="submit" value="Entrar" class="login100-form-btn mt-3 mb-4">
+                                                                                        <h6 class="textodeboton">Entrar</h6>
+                                                                                        <!--      <a href="GEDEM.html"><h6 class="textodeboton">Entrar</h6></a>-->
+                                                                                    </button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/animsition.min.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/popper.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/select2.min.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/moment.min.js}"></script>
+    <script th:src="@{/js/daterangepicker.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/countdowntime.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/main.js}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Error</title>
+
+        <!-- Custom fonts for this template-->
+        <link th:href="@{/css/all.min.css}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+
+
+        <!-- Custom styles for this template-->
+        <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+    </head>
+
+    <body id="page-top" th:fragment="content">
+
+
+        <h1>Error </h1>
+        <h1>Area ya registrada</h1>
+        
+
+        <button ><h1 > <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" href="/gestionarArea">OK</a></h1></button>
+        
+                <!-- Bootstrap core JavaScript-->
+                <script th:src="@{/js/jquery.min.js}"></script>
+                <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+                <!-- Core plugin JavaScript-->
+                <script th:src="@{/js/jquery-easing/jquery.easing.min.js}"></script>
+
+                <!-- Custom scripts for all pages-->
+                <script th:src="@{/js/sb-admin-2.min.js}"></script>
+
+                </body>
+
+                </html>

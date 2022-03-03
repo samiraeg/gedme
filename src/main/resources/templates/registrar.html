@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login V8</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" th:href="@{/img/favicon.ico}" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/hamburgers.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animsition.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/select2.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/daterangepicker.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+    <!--===============================================================================================-->
+</head>
+
+<body th:fragment="content">
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form id="forReg" method="POST" th:action="@{/AgregarUsuario}" th:object="${userAgregar}" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                    <span th:if="${userAgregar.id!=null}">
+                            <input type="hidden" th:field="${userAgregar.id}" readonly>  
+                        </span>
+                    <div th:if="${userAgregar.id==null}">
+                        <span class="login100-form-title">
+                                Registrarse
+                            </span>
+                    </div>
+                    <div th:unless="${userAgregar.id==null}">
+                        <span class="login100-form-title">
+                                Modificar
+                            </span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input id="n" class="input100" type="text" name="username" placeholder="Nombre" th:field="*{nombre}" th:value="*{nombre}" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" minlength="3" maxlength="16" required>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input id="a" class="input100" type="text" name="username" placeholder="Apellido" th:field="*{apellido}" th:value="*{apellido}" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" minlength="3" maxlength="16" required>
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input id="ci" class="input100" type="text" name="username" placeholder="Carnet Identidad" th:field="*{ci}" th:value="*{ci}" pattern="^[0-9]+$" minlength="11" maxlength="11" required>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-16">
+                        <input id="ull" class="input100" type="text" name="name" placeholder="Usuario" th:field="*{usuarios}" th:value="*{usuarios}" minlength="3" maxlength="16" required>
+
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input">
+                        <input id="p" class="input100" type="password" name="pass" placeholder="Contraceña" th:field="*{pass}" th:value="*{pass}" required>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <br>
+
+                    <div class="container-login100-form-btn">
+                        <!--                            <input type="submit" value="adicionar"/>-->
+
+
+                        <button class="login100-form-btn" type="submit">
+                                Guardar
+                            </button>
+                        <br>
+                        <br>
+
+
+
+                        <div class="container-login100-form-btn mt-2">
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+                </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!--===============================================================================================-->
+        <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+        <!--===============================================================================================-->
+        <script th:src="@{/js/animsition.min.js}"></script>
+        <!--===============================================================================================-->
+        <script th:src="@{/js/popper.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <!--===============================================================================================-->
+        <script th:src="@{/js/select2.min.js}"></script>
+        <!--===============================================================================================-->
+        <script th:src="@{/js/moment.min.js}"></script>
+        <script th:src="@{/js/daterangepicker.js}"></script>
+        <!--===============================================================================================-->
+        <script th:src="@{/js/countdowntime.js}"></script>
+        <!--===============================================================================================-->
+        <script th:src="@{/js/main.js}"></script>
+        <script th:src="@{/js/validar.js}"></script>
+
+</body>
+
+</html>

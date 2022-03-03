@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Usuarios</title>
+
+    <!-- Custom fonts for this template-->
+    <link th:href="@{/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-icons.css}">
+
+    <!-- Custom styles for this template-->
+    <link type="text/css" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/main">
+                <div class="sidebar-brand-icon rotate-n-15">
+
+                </div>
+                <div class="sidebar-brand-text mx-3">GEDME </div>
+            </a>
+
+            <!-- Divider -->
+
+
+
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+
+            </div>
+
+
+
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/Rdenuncia">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Registrar denuncia</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/GestDenuncia" sec:authorize="hasAnyAuthority('ADMIN','Especialista')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Gestionar de denuncia</span></a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" href="/GestUsuarios">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Gestionar Usuarios</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href='@{/gestionarArea}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Gestionar Area</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" th:href='@{/Reportes}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tablet-landscape" viewBox="0 0 16 16">
+                        <path d="M1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm-1 8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8z"/>
+                        <path d="M14 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0z"/>
+                        </svg>
+                    <span>Reportes</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+
+
+
+                    <!--Nombre del sitio -->
+
+                    <h3 class="font-italic">Gestión de Denuncias Medioambientales</h3>
+
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+
+
+
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="/#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                                    </svg>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter"><p th:text="${cantNotificaciones}"></p></span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Centro de notificaciones
+                                </h6>
+
+                                <th:block th:each="per:${notificacioness}">
+
+                                    <div>
+
+                                        <div class=" container small  ">
+                                            <h6 class="p-2 " th:text="${per.notificacion}"></h6>
+                                        </div>
+                                        <a class="  dropdown-item d-flex align-items-center btn btn-sm" th:href="@{/EliminarNotificacion?id=} + ${per.id}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                                                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                                                </svg> <strong class="ms-1">Eliminar notificación</strong>
+                                        </a>
+                                    </div>
+
+                                </th:block>
+
+                            </div>
+                        </li>
+
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+                        <!--//////////////////////////////////NOTIFICACIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+
+
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span sec:authentication="name" class="mr-2 d-none d-lg-inline text-gray-600 small"></span> <br>
+                            </a>
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+
+                                <a class="dropdown-item" th:href="@{/logout}" data-toggle="modal" data-target="#logoutModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                        </svg> Salir
+                                </a>
+                            </div>
+                        </li>
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                        <!--////////////////////AUTENTICACION////////////////////////////-->
+                    </ul>
+
+                    <!--//aaaaaaaaaaaaa//-->
+
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+
+
+
+
+
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-black">Usuarios</h6>
+                        </div>
+                        <div class="card-body">
+
+                            <a class="btn btn-success mb-2" href="/registrar"><strong>Añadir</strong></a>
+
+                            <div class="table-responsive">
+                                <!--Quitar                      el              id para quitar        los buscar-->
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="buscar en la tabla...">
+                                    </div>
+
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Carnet de identidad</th>
+                                            <th>Usuario</th>
+                                            <th class="col-1">Modificar</th>
+                                            <th class="col-1">Eliminar</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <th:block th:each="per:${Usuarioss}">
+                                            <tr>
+                                                <td th:text="${per.nombre}">...</td>
+                                                <td th:text="${per.apellido}">...</td>
+                                                <td th:text="${per.ci}">...</td>
+                                                <td th:text="${per.usuarios}">...</td>
+                                                <td><a class="ml-4" th:href="@{/ModificarUsuario?id=} + ${per.id}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                                        </svg></a></td>
+
+                                                <td><a class="ml-4" th:onclick="eliminarUsuario([[${per.id}]])"><svg   xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                        </svg> </a>
+                                                </td>
+
+                                                <!--                                                <td><a data-toggle="modal" data-target="#exampleModal"><svg   xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                                                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                                                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                                                                        </svg></a>
+                                                                                                </td>-->
+
+                                            </tr>
+
+                                            <!-- Modal -->
+                                            <!--                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                                            <div class="modal-dialog" role="document">
+                                                                                                <div class="modal-content">
+                                                                                                    <div class="modal-header">
+                                                                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                            <span aria-hidden="true">&times;</span>
+                                                                                                        </button>
+                                                                                                    </div>
+                                                                                                    <div class="modal-body">
+                                                                                                        ¿Esta seguro que desea eliminar el usuario?
+                                                                                                    </div>
+                                                                                                    <div class="modal-footer">
+                                            
+                                            
+                                                                                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                                                                                        <a th:href="@{/EliminarUsuario/Dele?id=}+ ${per.id}" type="button" class="btn btn-danger">Eliminar</a>
+                                            
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>-->
+
+
+                                        </th:block>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+
+
+
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+            </svg>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Seguro que quiere salir?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                </div>
+                <div class="modal-body">Seleccione "Salir" si desea abandonar la página.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="/login">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script th:src="@{/js/jquery.easing.min.js}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{/js/sb-admin-2.min.js}"></script>
+    <!-- Page level plugins -->
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap4.min.js}"></script>
+
+    <!-- Page level custom scripts -->
+    <script th:src="@{/js/datatables-demo.js}"></script>
+
+
+
+    <script th:src="@{/js/funciones.js}"></script>
+    <script th:src="@{/js/jsvalidationgdem.js}"></script>
+    <script th:src="@{/js/sweetalert.min.js}"></script>
+
+    <script>
+        // Write on keyup event of keyword input element
+        $(document).ready(function() {
+            $("#search").keyup(function() {
+                _this = this;
+                // Show only matching TR, hide rest of them
+                $.each($("#dataTable tbody tr"), function() {
+                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+            });
+        });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
+</body>
+
+</html>
